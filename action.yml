@@ -60,5 +60,5 @@ runs:
       run: |
         $minverOutput = $(minver --auto-increment='${{ inputs.auto-increment }}' --build-metadata='${{ inputs.build-metadata }}' ${{ inputs.ignore-height == 'true' && '--ignore-height' || '' }} --default-pre-release-identifiers='${{ inputs.default-pre-release-identifiers }}' --minimum-major-minor='${{ inputs.minimum-major-minor }}' --tag-prefix='${{ inputs.tag-prefix }}' --verbosity='${{ inputs.verbosity }}'); 
         Write-Output "::set-output name=version::$minverOutput"
-        Write-Output "MINVER_VERSION=$minverOutput >> $GITHUB_ENV"
+        Write-Output "MINVER_VERSION=$minverOutput" >> $GITHUB_ENV
       shell: pwsh
